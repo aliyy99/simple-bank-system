@@ -6,16 +6,16 @@ def create_account(owner_name):
 def deposit(account,amount):
     if amount>0:
         account["balance"]+=amount    
-        print(f"{amount} TL deposited successfully. Current balance:{account["balance"]} TL")
+        print(f"{amount} TL deposited successfully💰. Current balance:{account["balance"]} TL")
     else:
         print("the amount to be deposited must be positive")
 def withdraw(account,amount):
     if amount>0:
         if account["balance"]>=amount:
            account["balance"]-=amount
-           print(f"{amount} TL successfully withdrawn. Current balance:{account["balance"]} TL")         
+           print(f"{amount} TL successfully withdrawn💰. Current balance:{account["balance"]} TL")         
         else:
-            print("İnsufficient balance.")   
+            print("İnsufficient balance ❌")   
     else:
         print("the amount to be withdrawn must be positive")        
 def balance(account):
@@ -29,7 +29,7 @@ while True:
        print("Congratulations! You entered the password correctly.")  
        break 
     else:
-       print("Incorrect login! Your password consists of only 6 digits.")
+       print("Incorrect login ❌ Your password consists of only 6 digits.")
 account=create_account(owner)
 
 while(True):
@@ -51,4 +51,4 @@ while(True):
         print(f"You are out of the app. Have a nice day!  (Exit:{get_time()})")    
         break
     else:
-        print("İnvalid selection. Please make a selection between 1-4. ")
+        print("İnvalid selection ❌ Please make a selection between 1-4. ")
