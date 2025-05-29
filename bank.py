@@ -21,7 +21,7 @@ def withdraw(account,amount):
 def balance(account):
     print(f"current balance of the {account["owner"]} account:{account["balance"]} TL")
 
-print("Welcome to our bank account application!  (Access:{get_time()})")
+print(f"Welcome to our bank account application!  (Access:{get_time()})")
 owner=input("Name and surname of the account holder:")
 while True:
     entered_pass=input("Please enter your password consisting of 6 digits:")
@@ -48,7 +48,7 @@ while(True):
     elif choice==3:
         balance(account)    
     elif choice==4:
-        print("You are out of the app. Have a nice day!  (Exit:{get_time()})")    
+        print(f"You are out of the app. Have a nice day!  (Exit:{get_time()})")    
         break
     else:
         print("İnvalid selection. Please make a selection between 1-4. ")
