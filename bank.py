@@ -23,7 +23,13 @@ def balance(account):
 
 print("bankamızın hesap uygulamasına hoş geldiniz!  (Giriş:{get_time()})")
 owner=input("hesap sahibinin adı:")
-password=input("lütfen şifrenizi giriniz:")
+while True:
+    entered_pass=input("Lütfen 6 haneli rakamlardan oluşan şifrenizi giriniz:")
+    if entered_pass.isdigit() and len(entered_pass)==6:
+       print("tebrikler şifreyi doğru girdiniz.")  
+       break 
+    else:
+       print("Hatalı giriş! şifreniz sadece 6 haneli rakamlardan oluşmaktadır.")
 account=create_account(owner)
 
 while(True):
