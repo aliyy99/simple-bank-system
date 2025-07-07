@@ -6,7 +6,7 @@ def get_time():
     return datetime.datetime.now().strftime("%X")
 
 def load_accounts():
-    """JSON dosyasından hesapları yükle"""
+    # JSON dosyasından hesapları yükle
     if os.path.exists("accounts.json"):
         try:
             with open("accounts.json", "r", encoding="utf-8") as file:
@@ -17,12 +17,12 @@ def load_accounts():
     return {}
 
 def save_accounts(accounts):
-    """Hesapları JSON dosyasına kaydet"""
+    # Hesapları JSON dosyasına kaydet
     with open("accounts.json", "w", encoding="utf-8") as file:
         json.dump(accounts, file, ensure_ascii=False, indent=4)
 
 def create_account(accounts, owner_name, password):
-    """Yeni hesap oluştur"""
+    # Yeni hesap oluştur
     if owner_name in accounts:
         print(f"❌ {owner_name} adına zaten bir hesap mevcut!")
         return False
@@ -37,7 +37,7 @@ def create_account(accounts, owner_name, password):
     return True
 
 def login(accounts, owner_name, password):
-    """Hesaba giriş yap"""
+    # Hesaba giriş yap
     if owner_name not in accounts:
         print("❌ Bu isimde bir hesap bulunamadı!")
         return False
@@ -50,7 +50,7 @@ def login(accounts, owner_name, password):
     return True
 
 def deposit(accounts, owner_name, amount):
-    """Para yatır"""
+    # Para yatır
     if amount > 0:
         accounts[owner_name]["balance"] += amount
         save_accounts(accounts)
@@ -59,7 +59,7 @@ def deposit(accounts, owner_name, amount):
         print("Yatırılacak miktar pozitif olmalıdır")
 
 def withdraw(accounts, owner_name, amount):
-    """Para çek"""
+    # Para çek
     if amount > 0:
         if accounts[owner_name]["balance"] >= amount:
             accounts[owner_name]["balance"] -= amount
@@ -71,11 +71,11 @@ def withdraw(accounts, owner_name, amount):
         print("Çekilecek miktar pozitif olmalıdır")
 
 def show_balance(accounts, owner_name):
-    """Bakiye göster"""
+    # Bakiye göster
     print(f"{owner_name} hesabının güncel bakiyesi: {accounts[owner_name]['balance']} TL")
 
 def list_all_accounts(accounts):
-    """Tüm hesapları listele (admin özelliği)"""
+    # Tüm hesapları listele
     if not accounts:
         print("Hiç hesap bulunamadı.")
         return
